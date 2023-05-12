@@ -44,11 +44,11 @@ public:
 		return *this *= 1/t;
 	}
 
-	double lenght_squared(){
+	double lenght_squared() const {
 		return data[0] * data[0] + data[1] * data[1] + data[2] * data[2];
 	}
 
-	double length(){
+	double length() const {
 		return sqrt(lenght_squared());
 	}
 
