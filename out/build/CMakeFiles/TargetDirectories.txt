@@ -1,0 +1,3 @@
+/home/arch_user_btw/code/cpp/Raytracing/out/build/CMakeFiles/rayzz.dir
+/home/arch_user_btw/code/cpp/Raytracing/out/build/CMakeFiles/edit_cache.dir
+/home/arch_user_btw/code/cpp/Raytracing/out/build/CMakeFiles/rebuild_cache.dir
