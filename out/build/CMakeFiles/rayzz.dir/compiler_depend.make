@@ -209,7 +209,8 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
   /usr/include/c++/12.2.1/tr1/modified_bessel_func.tcc \
   /usr/include/c++/12.2.1/tr1/poly_hermite.tcc \
   /usr/include/c++/12.2.1/tr1/poly_laguerre.tcc \
-  /usr/include/c++/12.2.1/tr1/riemann_zeta.tcc
+  /usr/include/c++/12.2.1/tr1/riemann_zeta.tcc \
+  /home/arch_user_btw/code/cpp/Raytracing/src/ray.h
 
 
 /usr/include/c++/12.2.1/tr1/riemann_zeta.tcc:
@@ -625,6 +626,8 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
 /usr/include/bits/mathcalls-helper-functions.h:
 
 /usr/include/c++/12.2.1/debug/debug.h:
+
+/home/arch_user_btw/code/cpp/Raytracing/src/ray.h:
 
 /usr/include/asm/errno.h:
 
