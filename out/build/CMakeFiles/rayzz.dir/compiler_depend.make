@@ -231,6 +231,7 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
   /usr/include/c++/12.2.1/pstl/execution_defs.h \
   /home/arch_user_btw/code/cpp/Raytracing/src/math.h \
   /home/arch_user_btw/code/cpp/Raytracing/src/util.h \
+  /home/arch_user_btw/code/cpp/Raytracing/src/camera.h \
   /home/arch_user_btw/code/cpp/Raytracing/src/ray.h \
   /home/arch_user_btw/code/cpp/Raytracing/src/sphere.h \
   /home/arch_user_btw/code/cpp/Raytracing/src/hittable.h \
@@ -623,6 +624,8 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
 /usr/include/c++/12.2.1/tr1/poly_hermite.tcc:
 
 /usr/include/c++/12.2.1/bits/concept_check.h:
+
+/home/arch_user_btw/code/cpp/Raytracing/src/camera.h:
 
 /usr/include/bits/pthreadtypes.h:
 

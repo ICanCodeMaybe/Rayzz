@@ -5,25 +5,21 @@
 
 #include "math.h"
 #include "util.h"
-
+#include "camera.h"
 #include "sphere.h"
 #include "hittable_list.h"
 
 //--------CONSTANTS-----------
 //image propreties
 const auto ASPECT_RATIO = 16/9;
-const int IMAGE_WIDTH = 900;
+const int IMAGE_WIDTH = 400;
 const int IMAGE_HEIGHT = IMAGE_WIDTH/ASPECT_RATIO;
+const int SAMPLES_PER_PIXEL = 100;
 
-//camera propreties
-const auto VIEWPORT_HEIGHT = 2.0;
-const auto VIEWPORT_WIDTH = VIEWPORT_HEIGHT * ASPECT_RATIO;
-const auto FOCAL_LENGHT = 1.0;
+//camera
+Camera camera;
 
-Point origin(0,0,0);
-Vec3 horizontal(VIEWPORT_WIDTH, 0, 0);
-Vec3 vertical(0, VIEWPORT_HEIGHT, 0);
-Point lower_left_corn = origin - horizontal/2 - vertical/2 - Vec3(0, 0, FOCAL_LENGHT);
+
 //----------------------------
 
 Color ray_color(const Ray& r, const Hittable& world){
@@ -49,13 +45,15 @@ int main(){
 	std::cout << "P3\n"<< IMAGE_WIDTH << " " << IMAGE_HEIGHT << "\n256\n";
 	for(int i = IMAGE_HEIGHT -1; i >= 0; i--){
 		for(int k = 0; k < IMAGE_WIDTH; k++){
-			double u = double(i)/IMAGE_HEIGHT;
-			double v = double(k)/IMAGE_WIDTH;
-			
-			Ray r(origin, (lower_left_corn + u*vertical + v*horizontal - origin));   
-			Color pixel_color = ray_color(r, world);
-			
-			write_color(std::cout, pixel_color);
+			Color pixel_color(0, 0, 0);
+			for(int l = 0; l < SAMPLES_PER_PIXEL; l++){
+				double v = (double(i) + random_double())/IMAGE_HEIGHT;
+				double u = (double(k) + random_double())/IMAGE_WIDTH;
+				
+				Ray r = camera.get_ray(u, v);   
+				pixel_color += ray_color(r, world);
+			}
+			write_color(std::cout, pixel_color, SAMPLES_PER_PIXEL);
 		}
 		std::cerr << "Lines remeaining: " << IMAGE_HEIGHT - i << " out of "<< IMAGE_HEIGHT << "\n" << std::flush;
 	}

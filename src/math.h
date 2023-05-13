@@ -1,8 +1,10 @@
 #ifndef MATH_H
 #define MATH_H
 
+#include "util.h"
 #include <iostream>
 #include <cmath>
+#include <ostream>
 
 class Vec3;
 using Color = Vec3;
@@ -33,6 +35,13 @@ public:
 		data[2] += t;
 		return *this;
 	}
+	Vec3& operator+=(const Vec3& t){
+		data[0] += t[0];
+		data[1] += t[1];
+		data[2] += t[2];
+		return *this;
+	}
+	
 	
 	Vec3& operator *=(const double t){
 		data[0] *= t;
@@ -100,9 +109,19 @@ public:
 	}
 
 
-void write_color(std::ostream &out, Color pixel_color){
-	out 	<< int(pixel_color.x() * 255.999) << " "
-		<< int(pixel_color.y() * 255.999) << " "
-		<< int(pixel_color.z() * 255.999) << "\n";
+void write_color(std::ostream &out, Color pixel_color, int num_of_samples){
+	auto r = pixel_color.x();
+	auto g = pixel_color.y();
+	auto b = pixel_color.z();
+
+	auto scale = 1.0/num_of_samples;
+	r*=scale;
+	g*=scale;
+	b*=scale;
+
+
+	out 	<< int(clamp(r, 0.0, 0.999) * 256) << " "
+		<< int(clamp(g, 0.0, 0.999) * 256) << " "
+		<< int(clamp(b, 0.0, 0.999) * 256) << "\n";
 }
 #endif
