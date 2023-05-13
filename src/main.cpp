@@ -3,18 +3,19 @@
 #include <memory>
 #include <ostream>
 
-#include "math.h"
 #include "util.h"
+#include "math.h"
 #include "camera.h"
 #include "sphere.h"
 #include "hittable_list.h"
+#include "material.h"
 
 //--------CONSTANTS-----------
 //image propreties
 const auto ASPECT_RATIO = 16/9;
-const int IMAGE_WIDTH = 400;
+const int IMAGE_WIDTH = 900;
 const int IMAGE_HEIGHT = IMAGE_WIDTH/ASPECT_RATIO;
-const int SAMPLES_PER_PIXEL = 100;
+const int SAMPLES_PER_PIXEL = 500;
 const int MAX_DEPTH = 50;
 
 //camera
@@ -30,8 +31,11 @@ Color ray_color(const Ray& r, const Hittable& world, int depth){
 		return Color(0, 0 ,0);
 
 	if(world.hit(r, 0.001, infinity, info)){
-		Point target = info.point + info.normal + random_in_hemisphere(info.normal); 
-		return 0.5*ray_color(Ray(info.point, target - info.point), world, depth -1);
+		Ray scattered;
+		Color attenuation;
+		if(info.material->scatter(r, info, attenuation, scattered))
+			return attenuation * ray_color(scattered, world, depth -1);
+		return Color(0 , 0, 0);
 	}
 
 	Vec3 unit = unit_vector(r.dir);
@@ -41,12 +45,22 @@ Color ray_color(const Ray& r, const Hittable& world, int depth){
 }
 
 int main(){
+	//materials
+	auto red_scatt = std::make_shared<Lambertian>(Color(0.9, 0.15, 0.1));
+	auto green_scatt = std::make_shared<Lambertian>(Color(0.15, 0.9, 0.1));
+	auto pink_scatt = std::make_shared<Lambertian>(Color(0.8, 0.3, 0.7));
+	auto white_metal = std::make_shared<Metal>(Color(0.94, 0.93, 0.9), 0.5);
+	auto blue_metal = std::make_shared<Metal>(Color(0.4, 0.5, 0.9), 0.05);
+
+
 
 	//world
 	HittableList world;
-	world.add(std::make_shared<Sphere>(Point(0.0, 0.0, -1.0), 0.5));
-	world.add(std::make_shared<Sphere>(Point(0.0, -100.5, -1.0), 100.0));
-	
+	world.add(std::make_shared<Sphere>(Point(0.0, 0.0, -2.0), 0.5, pink_scatt));
+	world.add(std::make_shared<Sphere>(Point(0.0, -100.5, -2.0), 100.0, green_scatt));
+	world.add(std::make_shared<Sphere>(Point(-1.25, 0.0, -3.0), 0.5, blue_metal));
+	world.add(std::make_shared<Sphere>(Point(1.0, 0.0, -2.0), 0.5, white_metal));
+	world.add(std::make_shared<Sphere>(Point(-1.5, 0.0, -1.5), 0.5, red_scatt));
 
 	std::cout << "P3\n"<< IMAGE_WIDTH << " " << IMAGE_HEIGHT << "\n256\n";
 	for(int i = IMAGE_HEIGHT -1; i >= 0; i--){

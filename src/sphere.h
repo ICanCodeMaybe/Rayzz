@@ -1,18 +1,20 @@
 #ifndef SPHERE_H
 #define SPHERE_H
 
-#include "hittable.h"
-#include "ray.h"
+#include "util.h"
 #include "math.h"
-#include <math.h>
+#include "ray.h"
+#include "material.h"
+#include "hittable.h"
 
 class Sphere : public Hittable{
 public:
 	Point center;
 	double radius;
+	std::shared_ptr<Material> m_material;
 public:
 	Sphere(){}
-	Sphere(Point center, double radius): center(center), radius(radius){}
+	Sphere(Point center, double radius, std::shared_ptr<Material> material): center(center), radius(radius), m_material(material){}
 
 	virtual bool hit(const Ray& r, double t_min, double t_max, hit_info& hit_in) const override;
 };
@@ -38,6 +40,7 @@ bool Sphere::hit(const Ray &r, double t_min, double t_max, hit_info &hit_in) con
 	hit_in.t = root;
 	hit_in.point = r.at(root);
 	hit_in.set_face_normal(r, (hit_in.point - center) / radius);
+	hit_in.material = m_material;
 
 	return true;
 }

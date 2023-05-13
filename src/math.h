@@ -4,7 +4,7 @@
 #include "util.h"
 #include <iostream>
 #include <cmath>
-#include <ostream>
+
 
 class Vec3;
 using Color = Vec3;
@@ -12,6 +12,7 @@ using Point = Vec3;
 
 inline Vec3 unit_vector(Vec3 v); 
 inline double dot(const Vec3 &u, const Vec3 &v); 
+
 
 class Vec3{
 public:
@@ -34,6 +35,11 @@ public:
 
 	inline static Vec3 random(double min, double max){
 		return Vec3(random_double(min, max), random_double(min, max), random_double(min, max));
+	}
+
+	bool close_zero(){
+		const auto s = 1e-8;
+		return (fabs(data[0]) < s) && (fabs(data[1]) < s) && (fabs(data[2]) < s);
 	}
 
 	Vec3 operator-() const { return Vec3(-data[0], -data[1], -data[2]); };
@@ -96,6 +102,8 @@ public:
 			return -in_unit_sphere;
 	}
 
+
+
 	inline std::ostream& operator<<(std::ostream &out, const Vec3 &v) {
 	    return out << v.data[0] << ' ' << v.data[1] << ' ' << v.data[2];
 	}
@@ -140,6 +148,9 @@ public:
 	    return v / v.length();
 	}
 
+	Vec3 reflect(const Vec3& v, const Vec3& n){
+		return v - 2*dot(v, n) * n;
+	}
 
 void write_color(std::ostream &out, Color pixel_color, int num_of_samples){
 	auto r = pixel_color.x();

@@ -169,13 +169,13 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: \
  /usr/include/c++/12.2.1/backward/auto_ptr.h \
  /usr/include/c++/12.2.1/pstl/glue_memory_defs.h \
  /usr/include/c++/12.2.1/pstl/execution_defs.h \
- /home/arch_user_btw/code/cpp/Raytracing/src/math.h \
  /home/arch_user_btw/code/cpp/Raytracing/src/util.h \
+ /home/arch_user_btw/code/cpp/Raytracing/src/math.h \
  /home/arch_user_btw/code/cpp/Raytracing/src/camera.h \
  /home/arch_user_btw/code/cpp/Raytracing/src/ray.h \
  /home/arch_user_btw/code/cpp/Raytracing/src/sphere.h \
+ /home/arch_user_btw/code/cpp/Raytracing/src/material.h \
  /home/arch_user_btw/code/cpp/Raytracing/src/hittable.h \
- /usr/include/c++/12.2.1/math.h \
  /home/arch_user_btw/code/cpp/Raytracing/src/hittable_list.h \
  /usr/include/c++/12.2.1/vector /usr/include/c++/12.2.1/bits/stl_vector.h \
  /usr/include/c++/12.2.1/bits/stl_bvector.h \
