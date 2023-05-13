@@ -152,4 +152,7 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: \
  /usr/include/c++/12.2.1/tr1/poly_hermite.tcc \
  /usr/include/c++/12.2.1/tr1/poly_laguerre.tcc \
  /usr/include/c++/12.2.1/tr1/riemann_zeta.tcc \
- /home/arch_user_btw/code/cpp/Raytracing/src/ray.h
+ /home/arch_user_btw/code/cpp/Raytracing/src/ray.h \
+ /home/arch_user_btw/code/cpp/Raytracing/src/sphere.h \
+ /home/arch_user_btw/code/cpp/Raytracing/src/hittable.h \
+ /usr/include/c++/12.2.1/math.h

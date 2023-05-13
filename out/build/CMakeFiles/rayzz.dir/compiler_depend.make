@@ -210,7 +210,9 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
   /usr/include/c++/12.2.1/tr1/poly_hermite.tcc \
   /usr/include/c++/12.2.1/tr1/poly_laguerre.tcc \
   /usr/include/c++/12.2.1/tr1/riemann_zeta.tcc \
-  /home/arch_user_btw/code/cpp/Raytracing/src/ray.h
+  /home/arch_user_btw/code/cpp/Raytracing/src/ray.h \
+  /home/arch_user_btw/code/cpp/Raytracing/src/sphere.h \
+  /home/arch_user_btw/code/cpp/Raytracing/src/hittable.h
 
 
 /usr/include/c++/12.2.1/tr1/riemann_zeta.tcc:
@@ -240,6 +242,8 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
 /usr/include/c++/12.2.1/bits/ostream.tcc:
 
 /usr/include/c++/12.2.1/bits/basic_ios.tcc:
+
+/home/arch_user_btw/code/cpp/Raytracing/src/hittable.h:
 
 /usr/include/c++/12.2.1/x86_64-pc-linux-gnu/bits/ctype_base.h:
 
@@ -466,6 +470,8 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
 /usr/include/bits/select.h:
 
 /usr/include/c++/12.2.1/bits/memoryfwd.h:
+
+/home/arch_user_btw/code/cpp/Raytracing/src/sphere.h:
 
 /usr/include/bits/libc-header-start.h:
 

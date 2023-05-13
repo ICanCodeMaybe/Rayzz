@@ -3,6 +3,7 @@
 
 #include "math.h"
 #include "ray.h"
+#include "sphere.h"
 
 //--------CONSTANTS-----------
 //image propreties
