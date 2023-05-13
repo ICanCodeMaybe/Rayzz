@@ -1,9 +1,13 @@
+#include <cmath>
 #include <iostream>
+#include <memory>
 #include <ostream>
 
 #include "math.h"
-#include "ray.h"
+#include "util.h"
+
 #include "sphere.h"
+#include "hittable_list.h"
 
 //--------CONSTANTS-----------
 //image propreties
@@ -22,29 +26,34 @@ Vec3 vertical(0, VIEWPORT_HEIGHT, 0);
 Point lower_left_corn = origin - horizontal/2 - vertical/2 - Vec3(0, 0, FOCAL_LENGHT);
 //----------------------------
 
-double hit_sphere(const Point& center, const double radius, const Ray& r);
-
-Color ray_color(const Ray& r){
-	double t = hit_sphere({0, 0, -1}, 0.5, r);
-	if(t > 0){
-		Vec3 N = unit_vector(r.at(t) - Point(0, 0, -1));
-		return (1-t)*Color(N.x()+1, N.y() + 1, N.z()+1);
+Color ray_color(const Ray& r, const Hittable& world){
+	hit_info info;
+	if(world.hit(r, 0, infinity, info)){
+		return 0.5*(info.normal + Color(1, 1, 1));
 	}
-	Vec3 unit_dir = unit_vector(r.dir);
-	t = (unit_dir.y() + 1)/2;
-	return (1-t)*Color(0.3, 0.4, 0.65) + t*Color(0.75, 0.85, 0.9);
+
+	Vec3 unit = unit_vector(r.dir);
+	double t = 0.5 * (unit.y() + 1);
+
+	return (1.0-t)*Color(0.3, 0.4, 0.65) + t*Color(0.75, 0.85, 0.9);
 }
 
 int main(){
-	std::cout << "P3\n"<< IMAGE_WIDTH << " " << IMAGE_HEIGHT << "\n256\n";
 
-	for(int i = 0; i < IMAGE_HEIGHT; i++){
+	//world
+	HittableList world;
+	world.add(std::make_shared<Sphere>(Point(0.0, 0.0, -1.0), 0.5));
+	world.add(std::make_shared<Sphere>(Point(0.0, -100.5, -1.0), 100.0));
+	
+
+	std::cout << "P3\n"<< IMAGE_WIDTH << " " << IMAGE_HEIGHT << "\n256\n";
+	for(int i = IMAGE_HEIGHT -1; i >= 0; i--){
 		for(int k = 0; k < IMAGE_WIDTH; k++){
 			double u = double(i)/IMAGE_HEIGHT;
 			double v = double(k)/IMAGE_WIDTH;
 			
 			Ray r(origin, (lower_left_corn + u*vertical + v*horizontal - origin));   
-			Color pixel_color = ray_color(r);
+			Color pixel_color = ray_color(r, world);
 			
 			write_color(std::cout, pixel_color);
 		}
@@ -53,20 +62,3 @@ int main(){
 
 }
 
-
-double hit_sphere(const Point& center, const double radius, const Ray& r){
-//discriminant, explenantion is in book(it does make good sence)
-
-	Vec3 oc = r.orig - center;
-	double a = r.dir.lenght_squared();
-	double half_b =  dot(oc, r.dir);
-	double c = oc.lenght_squared() - radius*radius;
-
-	double discriminant = half_b*half_b - a * c;
-	if(discriminant < 0)
-		return -1;
-	else{
-		return (-half_b - sqrt(discriminant))/(a); //solving the quadratic equation
-	}
-
-}

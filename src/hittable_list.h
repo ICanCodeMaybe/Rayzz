@@ -26,10 +26,11 @@ bool HittableList::hit(const Ray& r, double t_min, double t_max, hit_info& hit_i
 	double closest_so_far = t_max;
 
 	for(const auto obj : hittable_list){
-		obj->hit(r, t_min, closest_so_far, temporary_info);
-		hit_in = temporary_info;
-		closest_so_far = hit_in.t;
-		hit_any = true;
+		if(obj->hit(r, t_min, closest_so_far, temporary_info)){
+			hit_any = true;
+			hit_in = temporary_info;
+			closest_so_far = hit_in.t;
+		}
 	}
 
 	return hit_any;
