@@ -10,6 +10,9 @@ class Vec3;
 using Color = Vec3;
 using Point = Vec3;
 
+inline Vec3 unit_vector(Vec3 v); 
+inline double dot(const Vec3 &u, const Vec3 &v); 
+
 class Vec3{
 public:
 	double data[3];
@@ -24,6 +27,14 @@ public:
 	double y() const { return data[1]; }
 	double z() const { return data[2]; }
 
+
+	inline static Vec3 random(){
+		return Vec3(random_double(), random_double(), random_double());
+	}
+
+	inline static Vec3 random(double min, double max){
+		return Vec3(random_double(min, max), random_double(min, max), random_double(min, max));
+	}
 
 	Vec3 operator-() const { return Vec3(-data[0], -data[1], -data[2]); };
 	double operator[](int i) const { return data[i]; };
@@ -61,8 +72,29 @@ public:
 		return sqrt(lenght_squared());
 	}
 
-};	
+};
 	// vec3 Utility Functions
+
+	Vec3 random_in_unit_sphere(){
+		while(true){
+			Vec3 point = Vec3::random(-1, 1);
+			if(point.lenght_squared() >= 1) continue;
+			return point;
+		}
+	}
+
+	Vec3 random_unit_vector(){
+		return unit_vector(random_in_unit_sphere());
+	}
+
+	Vec3 random_in_hemisphere(const Vec3& normal){
+		Vec3 in_unit_sphere = random_in_unit_sphere();
+		if(dot(in_unit_sphere, normal) > 0){ // is in same hemisphere
+			return in_unit_sphere;
+		}
+		else
+			return -in_unit_sphere;
+	}
 
 	inline std::ostream& operator<<(std::ostream &out, const Vec3 &v) {
 	    return out << v.data[0] << ' ' << v.data[1] << ' ' << v.data[2];
@@ -115,9 +147,9 @@ void write_color(std::ostream &out, Color pixel_color, int num_of_samples){
 	auto b = pixel_color.z();
 
 	auto scale = 1.0/num_of_samples;
-	r*=scale;
-	g*=scale;
-	b*=scale;
+	r = sqrt(scale * r);
+	g = sqrt(scale * g);
+	b = sqrt(scale * b);
 
 
 	out 	<< int(clamp(r, 0.0, 0.999) * 256) << " "

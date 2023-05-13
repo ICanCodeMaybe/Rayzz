@@ -15,6 +15,7 @@ const auto ASPECT_RATIO = 16/9;
 const int IMAGE_WIDTH = 400;
 const int IMAGE_HEIGHT = IMAGE_WIDTH/ASPECT_RATIO;
 const int SAMPLES_PER_PIXEL = 100;
+const int MAX_DEPTH = 50;
 
 //camera
 Camera camera;
@@ -22,16 +23,21 @@ Camera camera;
 
 //----------------------------
 
-Color ray_color(const Ray& r, const Hittable& world){
+Color ray_color(const Ray& r, const Hittable& world, int depth){
 	hit_info info;
-	if(world.hit(r, 0, infinity, info)){
-		return 0.5*(info.normal + Color(1, 1, 1));
+
+	if(depth <= 0)
+		return Color(0, 0 ,0);
+
+	if(world.hit(r, 0.001, infinity, info)){
+		Point target = info.point + info.normal + random_in_hemisphere(info.normal); 
+		return 0.5*ray_color(Ray(info.point, target - info.point), world, depth -1);
 	}
 
 	Vec3 unit = unit_vector(r.dir);
 	double t = 0.5 * (unit.y() + 1);
 
-	return (1.0-t)*Color(0.3, 0.4, 0.65) + t*Color(0.75, 0.85, 0.9);
+	return (1.0-t)*Color(0.85, 0.9, 1) + t*Color(0.3, 0.35, 0.65);
 }
 
 int main(){
@@ -51,7 +57,7 @@ int main(){
 				double u = (double(k) + random_double())/IMAGE_WIDTH;
 				
 				Ray r = camera.get_ray(u, v);   
-				pixel_color += ray_color(r, world);
+				pixel_color += ray_color(r, world, MAX_DEPTH);
 			}
 			write_color(std::cout, pixel_color, SAMPLES_PER_PIXEL);
 		}
