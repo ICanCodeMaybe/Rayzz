@@ -19,7 +19,7 @@ const int SAMPLES_PER_PIXEL = 100;
 const int MAX_DEPTH = 50;
 
 //camera
-Camera camera;
+Camera camera(degrees_to_radians(75), 16.0/9.0);
 
 
 //----------------------------

@@ -4,6 +4,7 @@
 #include "math.h"
 #include "ray.h"
 #include "util.h"
+#include <math.h>
 
 class Camera{
 private:
@@ -13,10 +14,9 @@ private:
 	Vec3 vertical;
 
 public:
-	Camera(){
-		auto aspect_ration = 16/9;
-		auto viewport_height = 2.0;
-		auto viewport_width = viewport_height * aspect_ration;
+	Camera(double vfov, double aspect_ratio){ //vfov in radians
+		auto viewport_height = 2.0 * tan(vfov/2);
+		auto viewport_width = viewport_height * aspect_ratio;
 		auto focal_lenght = 1.0;
 
 		origin = Point(0,0,0);
