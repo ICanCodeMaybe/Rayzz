@@ -177,7 +177,20 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: \
  /home/arch_user_btw/code/cpp/Raytracing/src/sphere.h \
  /home/arch_user_btw/code/cpp/Raytracing/src/material.h \
  /home/arch_user_btw/code/cpp/Raytracing/src/hittable.h \
- /home/arch_user_btw/code/cpp/Raytracing/src/hittable_list.h \
- /usr/include/c++/12.2.1/vector /usr/include/c++/12.2.1/bits/stl_vector.h \
+ /usr/include/c++/12.2.1/functional \
+ /usr/include/c++/12.2.1/bits/std_function.h \
+ /usr/include/c++/12.2.1/unordered_map \
+ /usr/include/c++/12.2.1/bits/hashtable.h \
+ /usr/include/c++/12.2.1/bits/hashtable_policy.h \
+ /usr/include/c++/12.2.1/bits/enable_special_members.h \
+ /usr/include/c++/12.2.1/bits/node_handle.h \
+ /usr/include/c++/12.2.1/bits/unordered_map.h \
+ /usr/include/c++/12.2.1/bits/erase_if.h /usr/include/c++/12.2.1/vector \
+ /usr/include/c++/12.2.1/bits/stl_vector.h \
  /usr/include/c++/12.2.1/bits/stl_bvector.h \
- /usr/include/c++/12.2.1/bits/vector.tcc
+ /usr/include/c++/12.2.1/bits/vector.tcc /usr/include/c++/12.2.1/array \
+ /usr/include/c++/12.2.1/compare /usr/include/c++/12.2.1/bits/stl_algo.h \
+ /usr/include/c++/12.2.1/bits/algorithmfwd.h \
+ /usr/include/c++/12.2.1/bits/stl_heap.h \
+ /usr/include/c++/12.2.1/bits/uniform_int_dist.h \
+ /home/arch_user_btw/code/cpp/Raytracing/src/hittable_list.h

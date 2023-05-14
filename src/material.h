@@ -4,6 +4,9 @@
 #include "hittable.h"
 #include "math.h"
 #include "ray.h"
+#include "util.h"
+#include <functional>
+#include <math.h>
 
 
 class Material{
@@ -57,11 +60,28 @@ public:
 		double refract_ratio = (info.front_face)? (1.0 / index_of_refraction) : index_of_refraction; //going from air, to material. then from material to air, so its ir/1 = ir
 
 		Vec3 unit_direction = unit_vector(r_in.dir);
-		Vec3 refracted_dir = refract(unit_direction, info.normal, refract_ratio);
 		
-		scattered = Ray(info.point, refracted_dir);
+		double cos_theta = fmin(dot(-unit_direction, info.normal), 1);
+		double sin_theta = sqrt(1 - cos_theta*cos_theta);
+		
+		Vec3 direction;
+		bool cannot_refract = (sin_theta * refract_ratio) > 1.0;
+		if(cannot_refract || reflectance(cos_theta, refract_ratio) > random_double()){
+			direction = reflect(unit_direction, info.normal);
+		}
+		else{
+			direction = refract(unit_direction, info.normal, refract_ratio);
+		}
+		scattered = Ray(info.point, direction);
 
 		return true;
+	}
+
+private:
+	static double reflectance(double cosine, double ref_idx){
+		auto r0 = (1-ref_idx) / (1+ref_idx);
+            	r0 = r0*r0;
+            	return r0 + (1-r0)*pow((1 - cosine),5);
 	}
 };
 #endif

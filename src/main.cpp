@@ -56,12 +56,12 @@ int main(){
 
 	//world
 	HittableList world;
-	world.add(std::make_shared<Sphere>(Point(0.0, 0.0, -2.0), 0.5, pink_scatt));
+	world.add(std::make_shared<Sphere>(Point(0.0, 0.0, -2.0), 0.5, blue_metal));
 	world.add(std::make_shared<Sphere>(Point(0.0, -100.5, -2.0), 100.0, green_scatt));
-	world.add(std::make_shared<Sphere>(Point(-1.25, 0.0, -3.0), 0.5, blue_metal));
+	world.add(std::make_shared<Sphere>(Point(-2.0, 0.0, -2.0), 0.5, pink_scatt));
 	world.add(std::make_shared<Sphere>(Point(1.0, 0.0, -2.0), 0.5, white_metal));
-	world.add(std::make_shared<Sphere>(Point(-1.5, 0.0, -1.5), 0.5, red_scatt));
-	world.add(std::make_shared<Sphere>(Point(0.0, 0.0, -1), 0.5, glass));
+	world.add(std::make_shared<Sphere>(Point(-1.0, 0.0, -2.0), 0.5, glass));
+	world.add(std::make_shared<Sphere>(Point(-1.0, 0.0, -2.0), -0.4, glass));
 
 	std::cout << "P3\n"<< IMAGE_WIDTH << " " << IMAGE_HEIGHT << "\n256\n";
 	for(int i = IMAGE_HEIGHT -1; i >= 0; i--){

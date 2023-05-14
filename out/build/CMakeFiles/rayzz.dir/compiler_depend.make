@@ -237,16 +237,39 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
   /home/arch_user_btw/code/cpp/Raytracing/src/sphere.h \
   /home/arch_user_btw/code/cpp/Raytracing/src/material.h \
   /home/arch_user_btw/code/cpp/Raytracing/src/hittable.h \
-  /home/arch_user_btw/code/cpp/Raytracing/src/hittable_list.h \
+  /usr/include/c++/12.2.1/functional \
+  /usr/include/c++/12.2.1/bits/std_function.h \
+  /usr/include/c++/12.2.1/unordered_map \
+  /usr/include/c++/12.2.1/bits/hashtable.h \
+  /usr/include/c++/12.2.1/bits/hashtable_policy.h \
+  /usr/include/c++/12.2.1/bits/enable_special_members.h \
+  /usr/include/c++/12.2.1/bits/node_handle.h \
+  /usr/include/c++/12.2.1/bits/unordered_map.h \
+  /usr/include/c++/12.2.1/bits/erase_if.h \
   /usr/include/c++/12.2.1/vector \
   /usr/include/c++/12.2.1/bits/stl_vector.h \
   /usr/include/c++/12.2.1/bits/stl_bvector.h \
-  /usr/include/c++/12.2.1/bits/vector.tcc
+  /usr/include/c++/12.2.1/bits/vector.tcc \
+  /usr/include/c++/12.2.1/array \
+  /usr/include/c++/12.2.1/compare \
+  /usr/include/c++/12.2.1/bits/stl_algo.h \
+  /usr/include/c++/12.2.1/bits/algorithmfwd.h \
+  /usr/include/c++/12.2.1/bits/stl_heap.h \
+  /usr/include/c++/12.2.1/bits/uniform_int_dist.h \
+  /home/arch_user_btw/code/cpp/Raytracing/src/hittable_list.h
 
+
+/home/arch_user_btw/code/cpp/Raytracing/src/hittable_list.h:
+
+/usr/include/c++/12.2.1/array:
 
 /usr/include/c++/12.2.1/bits/vector.tcc:
 
-/home/arch_user_btw/code/cpp/Raytracing/src/hittable_list.h:
+/usr/include/c++/12.2.1/bits/node_handle.h:
+
+/usr/include/c++/12.2.1/bits/std_function.h:
+
+/usr/include/c++/12.2.1/functional:
 
 /home/arch_user_btw/code/cpp/Raytracing/src/material.h:
 
@@ -265,6 +288,8 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
 /usr/include/c++/12.2.1/bits/atomic_base.h:
 
 /usr/include/c++/12.2.1/bits/shared_ptr_atomic.h:
+
+/usr/include/c++/12.2.1/bits/uniform_int_dist.h:
 
 /usr/include/c++/12.2.1/tuple:
 
@@ -362,6 +387,8 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
 
 /usr/include/c++/12.2.1/vector:
 
+/usr/include/c++/12.2.1/bits/erase_if.h:
+
 /usr/include/c++/12.2.1/string:
 
 /usr/include/bits/pthread_stack_min-dynamic.h:
@@ -379,6 +406,10 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
 /usr/include/bits/errno.h:
 
 /usr/include/bits/timex.h:
+
+/usr/include/c++/12.2.1/bits/stl_algo.h:
+
+/usr/include/c++/12.2.1/compare:
 
 /usr/include/bits/cpu-set.h:
 
@@ -429,6 +460,8 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
 /usr/include/ctype.h:
 
 /usr/include/bits/waitflags.h:
+
+/usr/include/c++/12.2.1/bits/algorithmfwd.h:
 
 /home/arch_user_btw/code/cpp/Raytracing/src/math.h:
 
@@ -560,6 +593,8 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
 
 /usr/include/c++/12.2.1/bits/memoryfwd.h:
 
+/usr/include/c++/12.2.1/bits/stl_heap.h:
+
 /usr/include/c++/12.2.1/bits/stl_iterator_base_types.h:
 
 /usr/include/bits/stdint-uintn.h:
@@ -567,6 +602,8 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
 /usr/include/c++/12.2.1/bits/atomic_lockfree_defines.h:
 
 /usr/include/bits/math-vector.h:
+
+/usr/include/c++/12.2.1/bits/hashtable_policy.h:
 
 /usr/include/features.h:
 
@@ -640,9 +677,13 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
 
 /usr/include/c++/12.2.1/bits/stl_iterator.h:
 
+/usr/include/c++/12.2.1/bits/unordered_map.h:
+
 /usr/include/bits/mathcalls-helper-functions.h:
 
 /usr/include/c++/12.2.1/debug/debug.h:
+
+/usr/include/c++/12.2.1/bits/hashtable.h:
 
 /usr/include/c++/12.2.1/bits/shared_ptr_base.h:
 
@@ -656,6 +697,8 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
 
 /usr/include/c++/12.2.1/tr1/hypergeometric.tcc:
 
+/usr/include/c++/12.2.1/unordered_map:
+
 /usr/include/c++/12.2.1/tr1/legendre_function.tcc:
 
 /usr/include/c++/12.2.1/bits/streambuf_iterator.h:
@@ -667,6 +710,8 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
 /usr/lib/gcc/x86_64-pc-linux-gnu/12.2.1/include/stddef.h:
 
 /usr/include/c++/12.2.1/tr1/modified_bessel_func.tcc:
+
+/usr/include/c++/12.2.1/bits/enable_special_members.h:
 
 /usr/include/c++/12.2.1/tr1/riemann_zeta.tcc:
 

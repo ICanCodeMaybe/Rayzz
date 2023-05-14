@@ -159,7 +159,6 @@ public:
 		Vec3 r_out_parallel = -sqrt(fabs(1 - r_out_perpend.lenght_squared()))*normal;
 
 		return r_out_perpend + r_out_parallel;
-
 	}
 
 void write_color(std::ostream &out, Color pixel_color, int num_of_samples){
