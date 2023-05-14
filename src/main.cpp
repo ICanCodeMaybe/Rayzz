@@ -13,9 +13,9 @@
 //--------CONSTANTS-----------
 //image propreties
 const auto ASPECT_RATIO = 16/9;
-const int IMAGE_WIDTH = 900;
+const int IMAGE_WIDTH = 400;
 const int IMAGE_HEIGHT = IMAGE_WIDTH/ASPECT_RATIO;
-const int SAMPLES_PER_PIXEL = 500;
+const int SAMPLES_PER_PIXEL = 100;
 const int MAX_DEPTH = 50;
 
 //camera
@@ -51,7 +51,7 @@ int main(){
 	auto pink_scatt = std::make_shared<Lambertian>(Color(0.8, 0.3, 0.7));
 	auto white_metal = std::make_shared<Metal>(Color(0.94, 0.93, 0.9), 0.5);
 	auto blue_metal = std::make_shared<Metal>(Color(0.4, 0.5, 0.9), 0.05);
-
+	auto glass = std::make_shared<Dielectric>(1.5, Color(1.0, 1.0, 1.0));
 
 
 	//world
@@ -61,6 +61,7 @@ int main(){
 	world.add(std::make_shared<Sphere>(Point(-1.25, 0.0, -3.0), 0.5, blue_metal));
 	world.add(std::make_shared<Sphere>(Point(1.0, 0.0, -2.0), 0.5, white_metal));
 	world.add(std::make_shared<Sphere>(Point(-1.5, 0.0, -1.5), 0.5, red_scatt));
+	world.add(std::make_shared<Sphere>(Point(0.0, 0.0, -1), 0.5, glass));
 
 	std::cout << "P3\n"<< IMAGE_WIDTH << " " << IMAGE_HEIGHT << "\n256\n";
 	for(int i = IMAGE_HEIGHT -1; i >= 0; i--){

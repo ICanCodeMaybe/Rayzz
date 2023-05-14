@@ -231,6 +231,7 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
   /usr/include/c++/12.2.1/pstl/execution_defs.h \
   /home/arch_user_btw/code/cpp/Raytracing/src/util.h \
   /home/arch_user_btw/code/cpp/Raytracing/src/math.h \
+  /usr/include/c++/12.2.1/math.h \
   /home/arch_user_btw/code/cpp/Raytracing/src/camera.h \
   /home/arch_user_btw/code/cpp/Raytracing/src/ray.h \
   /home/arch_user_btw/code/cpp/Raytracing/src/sphere.h \
@@ -384,6 +385,8 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: /home/arch_user_btw/code/cpp/Raytracing/src
 /usr/include/bits/types/struct_sched_param.h:
 
 /usr/include/bits/sched.h:
+
+/usr/include/c++/12.2.1/math.h:
 
 /usr/include/sched.h:
 

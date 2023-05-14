@@ -44,4 +44,24 @@ public:
 		return (dot(scattered.dir, info.normal) > 0); //check, so the scattered and normal arent more than 90 degrees apart;
 	}
 };
+
+class Dielectric : public Material{
+public:
+	double index_of_refraction;
+	Color m_attentuation;
+public:
+	Dielectric(double index_of_refraction, Color attenuation = Color(1.0, 1.0, 1.0)): index_of_refraction(index_of_refraction), m_attentuation(attenuation){}
+	
+	virtual bool scatter(const Ray& r_in, const hit_info& info, Color& attenuation, Ray& scattered) const override {
+		attenuation = m_attentuation;
+		double refract_ratio = (info.front_face)? (1.0 / index_of_refraction) : index_of_refraction; //going from air, to material. then from material to air, so its ir/1 = ir
+
+		Vec3 unit_direction = unit_vector(r_in.dir);
+		Vec3 refracted_dir = refract(unit_direction, info.normal, refract_ratio);
+		
+		scattered = Ray(info.point, refracted_dir);
+
+		return true;
+	}
+};
 #endif

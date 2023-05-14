@@ -4,6 +4,7 @@
 #include "util.h"
 #include <iostream>
 #include <cmath>
+#include <math.h>
 
 
 class Vec3;
@@ -148,8 +149,17 @@ public:
 	    return v / v.length();
 	}
 
-	Vec3 reflect(const Vec3& v, const Vec3& n){
+	inline Vec3 reflect(const Vec3& v, const Vec3& n){
 		return v - 2*dot(v, n) * n;
+	}
+	
+	inline Vec3 refract(const Vec3& uv, const Vec3& normal, double etai_over_etat){
+		auto cos_theta = fmin(dot(-uv, normal), 1.0);
+		Vec3 r_out_perpend = etai_over_etat*(uv+cos_theta*normal);
+		Vec3 r_out_parallel = -sqrt(fabs(1 - r_out_perpend.lenght_squared()))*normal;
+
+		return r_out_perpend + r_out_parallel;
+
 	}
 
 void write_color(std::ostream &out, Color pixel_color, int num_of_samples){

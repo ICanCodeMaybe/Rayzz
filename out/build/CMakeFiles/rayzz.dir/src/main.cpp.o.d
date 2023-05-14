@@ -171,6 +171,7 @@ CMakeFiles/rayzz.dir/src/main.cpp.o: \
  /usr/include/c++/12.2.1/pstl/execution_defs.h \
  /home/arch_user_btw/code/cpp/Raytracing/src/util.h \
  /home/arch_user_btw/code/cpp/Raytracing/src/math.h \
+ /usr/include/c++/12.2.1/math.h \
  /home/arch_user_btw/code/cpp/Raytracing/src/camera.h \
  /home/arch_user_btw/code/cpp/Raytracing/src/ray.h \
  /home/arch_user_btw/code/cpp/Raytracing/src/sphere.h \
